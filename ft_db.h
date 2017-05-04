@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:06:54 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 15:10:54 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 15:43:41 by cyildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,46 @@ typedef struct		s_db
 {
 	t_row			*row;
 }					t_db;
+
+/*
+**	create a table with the specified name
+**	@param name: the name of the table to be created	
+**	@return returns a t_db struct which is our table
+*/
+t_db *create_table(char *name);
+/*
+**	write our t_db (table) from memory into a file
+**	@param database: the table to be written to file
+*/
+void write_table_to_file(t_db *database);
+/*
+**	add a key value pair to the table passed as a param
+**	@param database: the table that the entry will be added to
+*/
+void add_table_entry(t_db *database, char *key, char *value);
+/*
+**	remove a key value pair from the specified table
+**	@param database: the table to search through
+**	@param key: the key of the key value pair to delete
+*/
+void remove_table_entry(t_db *database, char *key);
+/*
+**	update the value of a key value pair
+**	@param database: the table to search through
+**	@param key: the key of the entry you want to update
+**	@param new_value: the new value for the found entry
+*/
+void update_table_entry(t_db *database, char *key, char *new_value);
+/*
+**	get the value for the entry with specified key
+**	@param database: the table to search through
+**	@param key: the key used to find the entry to display
+**	@return the value associated with the key in the table
+*/
+char *get_table_entry(t_db *database, char *key);
+/*
+**	takes in the input and removes non alpha-numeric characters
+**	@param input: the string from the user
+*/
+void validate_input(char *input);
 #endif
