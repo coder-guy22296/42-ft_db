@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_db.c                                          :+:      :+:    :+:   */
+/*   delete_entry.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/04 15:17:51 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 15:54:15 by jshi             ###   ########.fr       */
+/*   Created: 2017/05/04 16:02:29 by jshi              #+#    #+#             */
+/*   Updated: 2017/05/04 16:11:04 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
 
-void	load_db(t_db *db)
+void	remove_table_entry(t_db *database, char *key)
 {
-	FILE	*fp;
 	t_row	**cur;
-	char	*line;
-	size_t	linecap;
-	ssize_t	linelen;
-	
-	if (!(fp = fopen(FN, "r")))
+	t_row	*to_delete;
+
+	cur = &database->row;
+	while (*cur && strcmp((*cur)->key, key))
+		cur = &(*cur)->next;
+	if (!*cur)
 	{
-		// error: can't open file
+		// key not found
 		return;
 	}
-	db->row = NULL;
-	cur = &db->row;
-	line = NULL;
-	linecap = 0;
-	while ((linelen = getline(&line, &linecap, fp)) > 0)
-	{
-		*cur = (t_row*)malloc(sizeof(**cur));
-		(*cur)->key = strdup(strtok(line, ","));
-		(*cur)->value = strdup(strtok(NULL, ","));
-		(*cur)->next = NULL;
-		cur = &(*cur)->next;
-	}
-	fclose(fp);
+	to_delete = *cur;
+	*cur = (*cur)->next;
+	free(to_delete);
 }
