@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:17:51 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 15:54:15 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 16:49:28 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	load_db(t_db *db)
 	char	*line;
 	size_t	linecap;
 	ssize_t	linelen;
-	
+
+	db->row = NULL;
 	if (!(fp = fopen(FN, "r")))
 	{
 		// error: can't open file
 		return;
 	}
-	db->row = NULL;
 	cur = &db->row;
 	line = NULL;
 	linecap = 0;
