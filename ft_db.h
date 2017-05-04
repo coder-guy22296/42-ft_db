@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:06:54 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 16:12:28 by cyildiri         ###   ########.fr       */
+/*   Updated: 2017/05/04 16:15:43 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,5 @@ char *get_table_entry(t_db *database, char *key);
 **	@param input: the string from the user
 */
 void validate_input(char *input);
-void				load_db(t_db *db);
+void load_db(t_db *db);
 #endif
