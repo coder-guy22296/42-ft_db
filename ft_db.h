@@ -6,11 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:06:54 by jshi              #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2017/05/04 15:48:52 by cyildiri         ###   ########.fr       */
-=======
-/*   Updated: 2017/05/04 15:17:42 by jshi             ###   ########.fr       */
->>>>>>> 9bd73d67cb4348357f7013d06ba713e12e5f6eb2
+/*   Updated: 2017/05/04 15:50:23 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +28,6 @@ typedef struct		s_db
 	t_row			*row;
 }					t_db;
 
-<<<<<<< HEAD
 /*
 **	create a table with the specified name
 **	@param name: the name of the table to be created	
