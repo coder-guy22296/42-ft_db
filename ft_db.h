@@ -6,7 +6,11 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:06:54 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 15:43:41 by cyildiri         ###   ########.fr       */
+<<<<<<< HEAD
+/*   Updated: 2017/05/04 15:48:52 by cyildiri         ###   ########.fr       */
+=======
+/*   Updated: 2017/05/04 15:17:42 by jshi             ###   ########.fr       */
+>>>>>>> 9bd73d67cb4348357f7013d06ba713e12e5f6eb2
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +32,7 @@ typedef struct		s_db
 	t_row			*row;
 }					t_db;
 
+<<<<<<< HEAD
 /*
 **	create a table with the specified name
 **	@param name: the name of the table to be created	
@@ -69,4 +74,5 @@ char *get_table_entry(t_db *database, char *key);
 **	@param input: the string from the user
 */
 void validate_input(char *input);
+void				load_db(t_db *db);
 #endif
