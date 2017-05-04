@@ -1,41 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_db.c                                          :+:      :+:    :+:   */
+/*   update_file.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/04 15:17:51 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 15:54:15 by jshi             ###   ########.fr       */
+/*   Created: 2017/05/04 15:51:37 by jshi              #+#    #+#             */
+/*   Updated: 2017/05/04 15:56:48 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
 
-void	load_db(t_db *db)
+void	write_table_to_file(t_db *database)
 {
 	FILE	*fp;
-	t_row	**cur;
-	char	*line;
-	size_t	linecap;
-	ssize_t	linelen;
-	
-	if (!(fp = fopen(FN, "r")))
+	t_row	*cur;
+
+	if (!(fp = fopen(FN, "w")))
 	{
 		// error: can't open file
 		return;
 	}
-	db->row = NULL;
-	cur = &db->row;
-	line = NULL;
-	linecap = 0;
-	while ((linelen = getline(&line, &linecap, fp)) > 0)
+	cur = database->row;
+	while (cur)
 	{
-		*cur = (t_row*)malloc(sizeof(**cur));
-		(*cur)->key = strdup(strtok(line, ","));
-		(*cur)->value = strdup(strtok(NULL, ","));
-		(*cur)->next = NULL;
-		cur = &(*cur)->next;
+		fprintf(fp, "%s,%s\n", cur->key, cur->value);
+		cur = cur->next;
 	}
 	fclose(fp);
 }
