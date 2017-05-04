@@ -6,7 +6,7 @@
 /*   By: cyildiri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:52:07 by cyildiri          #+#    #+#             */
-/*   Updated: 2017/05/04 16:44:09 by cyildiri         ###   ########.fr       */
+/*   Updated: 2017/05/04 16:51:44 by cyildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static	t_row  *row_new(char const *key, char const *value)
     else
         return (NULL);
     if (value)
-        node->key = strdup(value);
+        node->value = strdup(value);
     else
         node->value = NULL;
     node->next = NULL;
