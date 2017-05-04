@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 14:56:50 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 15:46:51 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 16:25:54 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,24 @@ int		main(void)
 	char	*line;
 	size_t	linecap;
 	ssize_t	linelen;
+	char	*command;
 
 	load_db(&db);
 	while ((linelen = getline(&line, &linecap, stdin)) > 0)
 	{
-		if (strncmp(line, "ADD ", 4) == 0)
-			// add entry
-		else if (strncmp(line, "SELECT ", 7) == 0)
-			// select entry
-		else if (strncmp(line, "UPDATE ", 7) == 0)
-			// update entry
-		else if (strncmp(line, "DELETE ", 7) == 0)
-			// delete entry
-		else if (strncmp(line, "EXIT", 4) == 0)
+		command = strtok(line, " ");
+		if (strcmp(command, "ADD") == 0)
+			add_table_entry(&db, strtok(NULL, " "), strtok(NULL, " "));
+		else if (strcmp(command, "SELECT") == 0)
+			printf("%s\n", get_table_entry(&db, strtok(NULL, " ")));
+		else if (strcmp(command, "UPDATE") == 0)
+			update_table_entry(&db, strtok(NULL, " "), strtok(NULL, " "));
+		else if (strcmp(command, "DELETE") == 0)
+			remove_table_entry(&db, strtok(NULL, " "));
+		else if (strcmp(command, "EXIT") == 0)
 			return (0);
 		else
-			// invalid command
+			printf("Invalid command\n");
 	}
 	return (0);
 }
