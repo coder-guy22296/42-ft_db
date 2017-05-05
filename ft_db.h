@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:06:54 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 18:48:51 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 18:59:34 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <stdio.h>
 # include <string.h>
 # define FN "database" // filename
+
+typedef struct		s_args
+{
+	char			**args;
+	int				count;
+}					t_args;
 
 typedef struct		s_row
 {
@@ -72,4 +78,24 @@ void	select_table_entry(t_table *table, char *key);
 */
 void	validate_input(char *input);
 void	load_table(t_table *table);
+/*
+**	display message and wait for a command in standard input
+**	@param msg: display this message for the user before getting command
+**	@return returns struct with command and parameters
+*/
+t_args	command_prompt(char *msg);
+/*
+**	counts the number of tokens separated by a delimiter character
+**	@param str: the string that contatins tokens
+**	@param delim: the character that separates the tokens
+**	@return	number of tokens in the string
+*/
+int		ft_cntwords(char const *str, char delim);
+/*
+**	splits the string into an array of tokens separated by a delimiter
+**	@param str: the string that contatins tokens
+**  @param delim: the character that separates the tokens
+**	@return array of c-string tokens
+*/
+char	**ft_strsplit(char const *s, char c);
 #endif
