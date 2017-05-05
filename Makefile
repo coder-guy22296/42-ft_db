@@ -17,9 +17,11 @@ OFILES = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME):
-	gcc -Wall -Wextra -Werror -c $(SRC)
+$(NAME): $(OFILES)
 	gcc -o $(NAME) $(OFILES)
+
+%.o: %.c
+	gcc -Wall -Wextra -Werror -c $< -o $@
 
 clean:
 	rm -rf $(OFILES)
