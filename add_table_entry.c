@@ -6,7 +6,7 @@
 /*   By: cyildiri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:52:07 by cyildiri          #+#    #+#             */
-/*   Updated: 2017/05/04 16:51:44 by cyildiri         ###   ########.fr       */
+/*   Updated: 2017/05/04 16:54:16 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,5 @@ void add_table_entry(t_db *database, char *key, char *value)
 	new_node = row_new(key, value);
 	new_node->next = database->row;
 	database->row = new_node;
+	write_table_to_file(database);
 }

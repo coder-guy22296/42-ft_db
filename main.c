@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 14:56:50 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 16:48:44 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 16:56:25 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		main(void)
 	load_db(&db);
 	while ((linelen = getline(&line, &linecap, stdin)) > 0)
 	{
+		*strchr(line, '\n') = '\0';
 		command = strtok(line, " ");
 		if (strcmp(command, "ADD") == 0)
 			add_table_entry(&db, strtok(NULL, " "), strtok(NULL, " "));
