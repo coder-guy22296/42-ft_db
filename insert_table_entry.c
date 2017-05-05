@@ -6,12 +6,11 @@
 /*   By: cyildiri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:52:07 by cyildiri          #+#    #+#             */
-/*   Updated: 2017/05/04 19:09:08 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 19:28:09 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
-#include "string.h"
 
 static	t_row  *row_new(char const *key, char const *value)
 {
@@ -25,11 +24,26 @@ static	t_row  *row_new(char const *key, char const *value)
     return (node);
 }
 
+static int	search_table_entry(t_table *table, char *key)
+{
+	t_row	*cur;
+
+	cur = table->row;
+	while (cur)
+	{
+		if (strcmp(cur->key, key) == 0)
+			return (1);
+		cur = cur->next;
+	}
+	return (0);
+}
+
 void insert_table_entry(t_table *table, char *key, char *value)
 {
-	t_row *new_node;
+	t_row	*new_node;
 
-	if (!key || !value || !(new_node = row_new(key, value)))
+	if (!key || !value || search_table_entry(table, key) ||
+		   	!(new_node = row_new(key, value)))
 	{
 		// either key/value is null, or calloc returned NULL
 		return;
