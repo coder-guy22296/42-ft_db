@@ -18,6 +18,7 @@ void	update_table_entry(t_table *table, char *key, char *new_value)
 
 	if (!key || !new_value || strchr(key, ',') || strchr(new_value, ','))
 	{
+		printf("Invalid input\n");
 		return ;
 	}
 	cur = table->row;
