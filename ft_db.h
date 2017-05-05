@@ -17,7 +17,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <strings.h>
-# define FN "database"
+# define FN ".database"
 
 typedef struct		s_args
 {
@@ -42,17 +42,20 @@ typedef struct		s_table
 **	@param table: the table to be written to file
 */
 void				write_table_to_file(t_table *table);
+
 /*
 **	add a key value pair to the table passed as a param
 **	@param table: the table that the entry will be added to
 */
 void				insert_table_entry(t_table *table, char *key, char *value);
+
 /*
 **	remove a key value pair from the specified table
 **	@param table: the table to search through
 **	@param key: the key of the key value pair to delete
 */
 void				delete_table_entry(t_table *table, char *key);
+
 /*
 **	update the value of a key value pair
 **	@param table: the table to search through
@@ -61,6 +64,7 @@ void				delete_table_entry(t_table *table, char *key);
 */
 void				update_table_entry(t_table *table, char *key,
 					char *new_value);
+
 /*
 **	get the value for the entry with specified key
 **	@param table: the table to search through
@@ -68,19 +72,23 @@ void				update_table_entry(t_table *table, char *key,
 **	@return the value associated with the key in the table
 */
 void				select_table_entry(t_table *table, char *key);
+
 /*
 **	displays all the key value pairs inside the table
 **	@param table: the table that will be displayed
 */
 void				display_table(t_table *table);
+
 void				load_table(t_table *table);
 void				free_table(t_table *table);
+
 /*
 **	display message and wait for a command in standard input
 **	@param msg: display this message for the user before getting command
 **	@return returns struct with command and parameters
 */
 t_args				command_prompt(char *msg);
+
 /*
 **	counts the number of tokens separated by a delimiter character
 **	@param str: the string that contatins tokens
@@ -88,6 +96,7 @@ t_args				command_prompt(char *msg);
 **	@return	number of tokens in the string
 */
 int					ft_cntwords(char const *str, char delim);
+
 /*
 **	splits the string into an array of tokens separated by a delimiter
 **	@param str: the string that contatins tokens
@@ -95,6 +104,7 @@ int					ft_cntwords(char const *str, char delim);
 **	@return array of c-string tokens
 */
 char				**ft_strsplit(char const *s, char c);
+
 /*
 **	Libft functions
 */
