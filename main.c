@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 14:56:50 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 19:45:48 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 19:59:05 by cyildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,17 @@ int		main(void)
 	while (1)
 	{
 		args = command_prompt("> ");
-		command = args.args[0];
-		if (strcmp(command, "INSERT") == 0 && args.count == 3)
+		if (args.args)
+			command = args.args[0];
+		if (args.count == 3 && strcmp(command, "INSERT") == 0)
 			insert_table_entry(&table, args.args[1], args.args[2]);
-		else if (strcmp(command, "SELECT") == 0 && args.count == 2)
+		else if (args.count == 2 && strcmp(command, "SELECT") == 0)
 			select_table_entry(&table, args.args[1]);
-		else if (strcmp(command, "UPDATE") == 0 && args.count == 3)
+		else if (args.count == 3 && strcmp(command, "UPDATE") == 0)
 			update_table_entry(&table, args.args[1], args.args[2]);
-		else if (strcmp(command, "DELETE") == 0 && args.count == 2)
+		else if (args.count == 2 && strcmp(command, "DELETE") == 0)
 			delete_table_entry(&table, args.args[1]);
-		else if (strcmp(command, "EXIT") == 0 && args.count == 1)
+		else if (args.count == 1 && strcmp(command, "EXIT") == 0)
 		{
 			free_table(&table);
 			return (0);
