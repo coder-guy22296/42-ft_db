@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 14:56:50 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 19:59:05 by cyildiri         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:44:11 by cyildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		main(void)
 		}
 		else
 			printf("Invalid command\n");
+		ft_stradel(&args.args);
 	}
 	return (0);
 }
