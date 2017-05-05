@@ -12,6 +12,17 @@
 
 #include "ft_db.h"
 
+static void	welcome_msg(void)
+{
+	printf("O====================================================O\n"
+			"|          /                /        /               |\n"
+			"|   /          Welcome to Hail Mary DB       /       |\n"
+			"|         /         /                 /              |\n"
+			"|    /      Developed by jshi && cyildiri       /    |\n"
+			"|           /               /          /             |\n"
+			"O====================================================O\n");
+}
+
 static void	print_usage(void)
 {
 	printf("Commmands (not case sensitive):\n"
@@ -52,6 +63,7 @@ int			main(void)
 	t_table	table;
 	t_args	args;
 
+	welcome_msg();
 	load_table(&table);
 	print_usage();
 	while (1)
