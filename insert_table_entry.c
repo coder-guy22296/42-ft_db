@@ -6,7 +6,7 @@
 /*   By: cyildiri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:52:07 by cyildiri          #+#    #+#             */
-/*   Updated: 2017/05/04 19:28:09 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 20:09:55 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ static int	search_table_entry(t_table *table, char *key)
 	while (cur)
 	{
 		if (strcmp(cur->key, key) == 0)
+		{
+			printf("Key already exists\n");
 			return (1);
+		}
 		cur = cur->next;
 	}
 	return (0);
