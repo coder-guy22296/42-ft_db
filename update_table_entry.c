@@ -22,8 +22,11 @@ void	update_table_entry(t_table *table, char *key, char *new_value)
 	}
 	cur = table->row;
 	while (cur)
+	{
 		if (strcmp(cur->key, key) == 0)
 			break ;
+		cur = cur->next;
+	}
 	if (!cur)
 	{
 		printf("Key not found\n");

@@ -29,7 +29,7 @@ t_args			command_prompt(char *msg)
 	t_args	args;
 
 	line = NULL;
-	write(1, msg, strlen(msg));
+	printf("%s", msg);
 	if ((linelen = getline(&line, &linecap, stdin)) > 0)
 	{
 		*strchr(line, '\n') = '\0';
