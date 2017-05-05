@@ -6,7 +6,7 @@
 /*   By: cyildiri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:52:07 by cyildiri          #+#    #+#             */
-/*   Updated: 2017/05/04 20:09:55 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 20:15:06 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void insert_table_entry(t_table *table, char *key, char *value)
 	t_row	*new_node;
 
 	if (!key || !value || search_table_entry(table, key) ||
-		   	!(new_node = row_new(key, value)))
+		   	!(new_node = row_new(key, value)) ||
+			strchr(key, ',') || strchr(value, ','))
 	{
 		// either key/value is null, or calloc returned NULL
 		return;

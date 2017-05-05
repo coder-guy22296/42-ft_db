@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:17:57 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 20:11:40 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 20:15:25 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	select_table_entry(t_table *table, char *key)
 {
 	t_row	*cur;
 
-	if (!key)
+	if (!key || strchr(key, ','))
 	{
 		// key is NULL
 		return;

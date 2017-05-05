@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:58:39 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 20:13:33 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 20:15:42 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	update_table_entry(t_table *table, char *key, char *new_value)
 {
 	t_row	*cur;
 
-	if (!key || !new_value)
+	if (!key || !new_value || strchr(key, ',') || strchr(new_value, ','))
 	{
 		// key or new_value is NULL
 		return;
