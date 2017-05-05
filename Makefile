@@ -1,11 +1,11 @@
 NAME = ft_db
 SRC =   main.c\
-		add_table_entry.c\
-		delete_entry.c\
-		get_entry.c\
-		update_entry.c\
-		update_file.c\
-		load_db.c
+		insert_table_entry.c\
+		delete_table_entry.c\
+		select_table_entry.c\
+		update_table_entry.c\
+		write_table_to_file.c\
+		load_table.c
 OFILES = $(SRC:.c=.o)
 
 all: $(NAME)

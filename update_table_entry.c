@@ -6,17 +6,17 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:58:39 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 16:01:38 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 18:42:11 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
 
-void	update_table_entry(t_db *database, char *key, char *new_value)
+void	update_table_entry(t_table *table, char *key, char *new_value)
 {
 	t_row	*cur;
 
-	cur = database->row;
+	cur = table->row;
 	while (cur)
 		if (strcmp(cur->key, key) == 0)
 			break;
@@ -27,5 +27,5 @@ void	update_table_entry(t_db *database, char *key, char *new_value)
 	}
 	free(cur->value);
 	cur->value = strdup(new_value);
-	write_table_to_file(database);
+	write_table_to_file(table);
 }

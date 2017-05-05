@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_db.c                                          :+:      :+:    :+:   */
+/*   load_table.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:17:51 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 16:58:49 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 18:40:15 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
 
-void	load_db(t_db *db)
+void	load_table(t_table *table)
 {
 	FILE	*fp;
 	t_row	**cur;
@@ -20,13 +20,13 @@ void	load_db(t_db *db)
 	size_t	linecap;
 	ssize_t	linelen;
 
-	db->row = NULL;
+	table->row = NULL;
 	if (!(fp = fopen(FN, "r")))
 	{
 		// error: can't open file
 		return;
 	}
-	cur = &db->row;
+	cur = &table->row;
 	line = NULL;
 	linecap = 0;
 	while ((linelen = getline(&line, &linecap, fp)) > 0)

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_entry.c                                        :+:      :+:    :+:   */
+/*   write_table_to_file.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/04 16:17:57 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 16:48:53 by jshi             ###   ########.fr       */
+/*   Created: 2017/05/04 15:51:37 by jshi              #+#    #+#             */
+/*   Updated: 2017/05/04 18:41:10 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
 
-char	*get_table_entry(t_db *database, char *key)
+void	write_table_to_file(t_table *table)
 {
+	FILE	*fp;
 	t_row	*cur;
 
-	cur = database->row;
+	if (!(fp = fopen(FN, "w")))
+	{
+		// error: can't open file
+		return;
+	}
+	cur = table->row;
 	while (cur)
 	{
-		if (strcmp(cur->key, key) == 0)
-			return cur->value;
+		fprintf(fp, "%s,%s\n", cur->key, cur->value);
 		cur = cur->next;
 	}
-	// key not found
-	return NULL;
+	fclose(fp);
 }
