@@ -79,7 +79,16 @@ void				select_table_entry(t_table *table, char *key);
 */
 void				display_table(t_table *table);
 
+/*
+**	loads a table from file into our struct
+**	@param table: the table struct that you want to load the file into
+*/
 void				load_table(t_table *table);
+
+/*
+**	cleans up the table struct
+**	@param table: the table to remove
+*/
 void				free_table(t_table *table);
 
 /*

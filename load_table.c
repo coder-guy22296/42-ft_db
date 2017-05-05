@@ -40,7 +40,7 @@ void		load_table(t_table *table)
 		if (!strchr(line, ',') || strchr(line, ',') != strrchr(line, ','))
 			return ;
 		*strchr(line, '\n') = '\0';
-		cur = (t_row*)malloc(sizeof(*cur));
+		cur = (t_row *)malloc(sizeof(t_row));
 		init_row(cur, line);
 		cur->next = table->row;
 		table->row = cur;
