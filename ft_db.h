@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:06:54 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 19:14:29 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/05 12:30:59 by cyildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include <strings.h>
 # define FN "database"
 
 typedef struct		s_args
