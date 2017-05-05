@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 14:56:50 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 19:40:17 by cyildiri         ###   ########.fr       */
+/*   Updated: 2017/05/04 19:45:48 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@ int		main(void)
 	char	*command;
 
 	load_table(&table);
+	printf("Commmands:\n"
+				"INSERT <key> <value>\n"
+				"SELECT <key>\n"
+				"UPDATE <key> <value>\n"
+				"DELETE <key>\n"
+				"EXIT\n");
 	while (1)
 	{
-		args = command_prompt("Commmands:\n"
-								"INSERT <key> <value>\n"
-								"SELECT <key>\n"
-								"UPDATE <key> <value>\n"
-								"DELETE <key>\n"
-								"EXIT\n");
+		args = command_prompt("> ");
 		command = args.args[0];
 		if (strcmp(command, "INSERT") == 0 && args.count == 3)
 			insert_table_entry(&table, args.args[1], args.args[2]);
