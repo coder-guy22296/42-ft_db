@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:17:51 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 21:19:13 by cyildiri         ###   ########.fr       */
+/*   Updated: 2017/05/04 22:07:47 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	load_table(t_table *table)
 	FILE	*fp;
 	t_row	**cur;
 	char	*line;
+	size_t	linecap;
 	ssize_t	linelen;
 	char	*tok;
 
@@ -25,7 +26,8 @@ void	load_table(t_table *table)
 		return ;
 	cur = &table->row;
 	line = NULL;
-	while ((linelen = getline(&line, NULL, fp)) > 0)
+	linecap = 0;
+	while ((linelen = getline(&line, &linecap, fp)) > 0)
 	{
 		if (!strchr(line, ',') || strchr(line, ',') != strrchr(line, ','))
 			return ;
