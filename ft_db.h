@@ -39,23 +39,23 @@ typedef struct		s_table
 
 /*
 **	write our t_table (table) from memory into a file
-**	@param database: the table to be written to file
+**	@param table: the table to be written to file
 */
 void				write_table_to_file(t_table *table);
 /*
 **	add a key value pair to the table passed as a param
-**	@param database: the table that the entry will be added to
+**	@param table: the table that the entry will be added to
 */
 void				insert_table_entry(t_table *table, char *key, char *value);
 /*
 **	remove a key value pair from the specified table
-**	@param database: the table to search through
+**	@param table: the table to search through
 **	@param key: the key of the key value pair to delete
 */
 void				delete_table_entry(t_table *table, char *key);
 /*
 **	update the value of a key value pair
-**	@param database: the table to search through
+**	@param table: the table to search through
 **	@param key: the key of the entry you want to update
 **	@param new_value: the new value for the found entry
 */
@@ -63,16 +63,16 @@ void				update_table_entry(t_table *table, char *key,
 					char *new_value);
 /*
 **	get the value for the entry with specified key
-**	@param database: the table to search through
+**	@param table: the table to search through
 **	@param key: the key used to find the entry to display
 **	@return the value associated with the key in the table
 */
 void				select_table_entry(t_table *table, char *key);
 /*
-**	takes in the input and removes non alpha-numeric characters
-**	@param input: the string from the user
+**	displays all the key value pairs inside the table
+**	@param table: the table that will be displayed
 */
-void				validate_input(char *input);
+void				display_table(t_table *table);
 void				load_table(t_table *table);
 void				free_table(t_table *table);
 /*

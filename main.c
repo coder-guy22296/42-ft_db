@@ -19,6 +19,7 @@ static void	print_usage(void)
 				"SELECT <key>\n"
 				"UPDATE <key> <value>\n"
 				"DELETE <key>\n"
+				"DISPLAY\n"
 				"EXIT\n");
 }
 
@@ -36,6 +37,8 @@ static int	menu(t_args args, t_table *table)
 		update_table_entry(table, args.args[1], args.args[2]);
 	else if (args.count == 2 && strcasecmp(command, "DELETE") == 0)
 		delete_table_entry(table, args.args[1]);
+	else if (args.count == 1 && strcasecmp(command, "DISPLAY") == 0)
+		display_table(table);
 	else if (args.count == 1 && strcasecmp(command, "EXIT") == 0)
 		return (1);
 	else
