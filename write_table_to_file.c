@@ -18,10 +18,7 @@ void	write_table_to_file(t_table *table)
 	t_row	*cur;
 
 	if (!(fp = fopen(FN, "w")))
-	{
-		// error: can't open file
-		return;
-	}
+		return ;
 	cur = table->row;
 	while (cur)
 	{

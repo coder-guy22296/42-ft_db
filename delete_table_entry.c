@@ -18,17 +18,14 @@ void	delete_table_entry(t_table *table, char *key)
 	t_row	*to_delete;
 
 	if (!key)
-	{
-		// key is NULL
-		return;
-	}
+		return ;
 	cur = &table->row;
 	while (*cur && strcmp((*cur)->key, key))
 		cur = &(*cur)->next;
 	if (!*cur)
 	{
 		printf("Key not found\n");
-		return;
+		return ;
 	}
 	to_delete = *cur;
 	*cur = (*cur)->next;

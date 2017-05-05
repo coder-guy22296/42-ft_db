@@ -22,17 +22,18 @@ void	load_table(t_table *table)
 
 	table->row = NULL;
 	if (!(fp = fopen(FN, "r")))
-		return;
+		return ;
 	cur = &table->row;
 	line = NULL;
 	while ((linelen = getline(&line, NULL, fp)) > 0)
 	{
 		if (!strchr(line, ',') || strchr(line, ',') != strrchr(line, ','))
-			return;
+			return ;
 		*strchr(line, '\n') = '\0';
 		*cur = (t_row*)malloc(sizeof(**cur));
 		(*cur)->key = strdup(strtok(line, ","));
-		(*cur)->value = (tok = strtok(NULL, ",")) ? strdup(tok) : strdup("");
+		tok = strtok(NULL, ",");
+		(*cur)->value = (tok) ? strdup(tok) : strdup("");
 		(*cur)->next = NULL;
 		cur = &(*cur)->next;
 		free(line);

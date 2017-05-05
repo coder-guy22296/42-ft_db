@@ -18,8 +18,7 @@ void	select_table_entry(t_table *table, char *key)
 
 	if (!key || strchr(key, ','))
 	{
-		// key is NULL
-		return;
+		return ;
 	}
 	cur = table->row;
 	while (cur)
@@ -27,7 +26,7 @@ void	select_table_entry(t_table *table, char *key)
 		if (strcmp(cur->key, key) == 0)
 		{
 			printf("%s\n", cur->value);
-			return;
+			return ;
 		}
 		cur = cur->next;
 	}

@@ -12,16 +12,16 @@
 
 #include "ft_db.h"
 
-static t_args str_to_args(char *str, char delim)
+static	t_args	str_to_args(char *str, char delim)
 {
 	t_args args;
 
 	args.count = ft_cntwords(str, delim);
-	args.args  = ft_strsplit(str, delim);
+	args.args = ft_strsplit(str, delim);
 	return (args);
 }
 
-t_args command_prompt(char *msg)
+t_args			command_prompt(char *msg)
 {
 	char	*line;
 	size_t	linelen;
@@ -32,7 +32,7 @@ t_args command_prompt(char *msg)
 	write(1, msg, strlen(msg));
 	if ((linelen = getline(&line, &linecap, stdin)) > 0)
 	{
-		*strchr(line, '\n') = '\0';		
+		*strchr(line, '\n') = '\0';
 		args = str_to_args(line, ' ');
 	}
 	else

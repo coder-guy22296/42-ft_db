@@ -14,7 +14,7 @@
 
 void	ft_stradel(char ***arr)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while ((*arr)[i] != '\0')

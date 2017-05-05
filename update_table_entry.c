@@ -18,17 +18,16 @@ void	update_table_entry(t_table *table, char *key, char *new_value)
 
 	if (!key || !new_value || strchr(key, ',') || strchr(new_value, ','))
 	{
-		// key or new_value is NULL
-		return;
+		return ;
 	}
 	cur = table->row;
 	while (cur)
 		if (strcmp(cur->key, key) == 0)
-			break;
+			break ;
 	if (!cur)
 	{
 		printf("Key not found\n");
-		return;
+		return ;
 	}
 	free(cur->value);
 	cur->value = strdup(new_value);
