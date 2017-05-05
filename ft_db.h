@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:06:54 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 18:59:34 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 19:12:05 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void	select_table_entry(t_table *table, char *key);
 */
 void	validate_input(char *input);
 void	load_table(t_table *table);
+void	free_table(t_table *table);
 /*
 **	display message and wait for a command in standard input
 **	@param msg: display this message for the user before getting command

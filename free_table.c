@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   delete_table_entry.c                               :+:      :+:    :+:   */
+/*   free_table.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/04 16:02:29 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 19:11:36 by jshi             ###   ########.fr       */
+/*   Created: 2017/05/04 19:12:09 by jshi              #+#    #+#             */
+/*   Updated: 2017/05/04 19:12:55 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
 
-void	delete_table_entry(t_table *table, char *key)
+void	free_table(t_table *table)
 {
-	t_row	**cur;
-	t_row	*to_delete;
+	t_row	*cur;
+	t_row	*next;
 
-	if (!key)
+	cur = table->row;
+	while (cur)
 	{
-		// key is NULL
-		return;
+		next = cur->next;
+		free(cur);
+		cur = next;
 	}
-	cur = &table->row;
-	while (*cur && strcmp((*cur)->key, key))
-		cur = &(*cur)->next;
-	if (!*cur)
-	{
-		// key not found
-		return;
-	}
-	to_delete = *cur;
-	*cur = (*cur)->next;
-	free(to_delete);
-	write_table_to_file(table);
 }

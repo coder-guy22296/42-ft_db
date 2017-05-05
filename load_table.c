@@ -6,11 +6,13 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:17:51 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 18:40:15 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 19:10:19 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
+
+// alloation errors should be handled here and freed properly
 
 void	load_table(t_table *table)
 {

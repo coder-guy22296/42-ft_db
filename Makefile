@@ -6,6 +6,7 @@ SRC =   main.c\
 		update_table_entry.c\
 		write_table_to_file.c\
 		load_table.c\
+		free_table.c\
 		command_prompt.c\
 		ft_cntwords.c\
 		ft_strsplit.c

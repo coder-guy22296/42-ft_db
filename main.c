@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 14:56:50 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 18:56:41 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 19:10:48 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,10 @@ int		main(void)
 		else if (strcmp(command, "DELETE") == 0)
 			delete_table_entry(&table, strtok(NULL, " "));
 		else if (strcmp(command, "EXIT") == 0)
+		{
+			free_table(&table);
 			return (0);
+		}
 		else
 			printf("Invalid command\n");
 	}
