@@ -5,7 +5,10 @@ SRC =   main.c\
 		get_entry.c\
 		update_entry.c\
 		update_file.c\
-		load_db.c
+		load_db.c\
+		command_prompt.c\
+		ft_cntwords.c\
+		ft_strsplit.c
 OFILES = $(SRC:.c=.o)
 
 all: $(NAME)
