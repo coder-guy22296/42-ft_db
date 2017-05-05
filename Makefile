@@ -8,7 +8,10 @@ SRC =   main.c\
 		load_table.c\
 		command_prompt.c\
 		ft_cntwords.c\
-		ft_strsplit.c
+		ft_strsplit.c\
+		ft_strnew.c\
+		ft_memalloc.c\
+		ft_stradel.c
 OFILES = $(SRC:.c=.o)
 
 all: $(NAME)

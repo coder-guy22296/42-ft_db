@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:06:54 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 18:59:34 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 19:11:03 by cyildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,10 @@ int		ft_cntwords(char const *str, char delim);
 **	@return array of c-string tokens
 */
 char	**ft_strsplit(char const *s, char c);
+/*
+**	Libft functions
+*/
+char    *ft_strnew(size_t size);
+void    *ft_memalloc(size_t size);
+void    ft_stradel(char ***arr);
 #endif
