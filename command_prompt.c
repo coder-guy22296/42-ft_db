@@ -6,7 +6,7 @@
 /*   By: cyildiri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 18:14:47 by cyildiri          #+#    #+#             */
-/*   Updated: 2017/05/04 18:46:36 by cyildiri         ###   ########.fr       */
+/*   Updated: 2017/05/04 18:55:56 by cyildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ t_args command_prompt(char *msg)
 
 	write(1, msg, strlen(msg));
 	if ((linelen = getline(&line, &linecap, stdin)) > 0)
+	{
+		*strchr(line, '\n') = '\0';		
 		args = str_to_args(line, ' ');
+	}
 	else
 	{
 		args.args = NULL;
 		args.count = 0;
 	}
-		
+	return (args);
 }
