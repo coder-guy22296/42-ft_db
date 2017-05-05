@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:02:29 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 19:11:36 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 20:13:20 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	delete_table_entry(t_table *table, char *key)
 		cur = &(*cur)->next;
 	if (!*cur)
 	{
-		// key not found
+		printf("Key not found\n");
 		return;
 	}
 	to_delete = *cur;

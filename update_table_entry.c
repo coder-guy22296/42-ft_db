@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:58:39 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 19:11:19 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 20:13:33 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	update_table_entry(t_table *table, char *key, char *new_value)
 			break;
 	if (!cur)
 	{
-		// key not found
+		printf("Key not found\n");
 		return;
 	}
 	free(cur->value);
