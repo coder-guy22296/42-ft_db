@@ -6,7 +6,7 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 19:12:09 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 19:12:55 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/04 23:15:50 by jshi             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	free_table(t_table *table)
 	while (cur)
 	{
 		next = cur->next;
+		free(cur->key);
+		free(cur->value);
 		free(cur);
 		cur = next;
 	}
