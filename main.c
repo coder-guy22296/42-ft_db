@@ -6,19 +6,31 @@
 /*   By: jshi <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 14:56:50 by jshi              #+#    #+#             */
-/*   Updated: 2017/05/04 22:03:32 by jshi             ###   ########.fr       */
+/*   Updated: 2017/05/05 12:34:48 by cyildiri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_db.h"
 
+static void	welcome_msg(void)
+{
+	printf("O====================================================O\n"
+			"|          /                /        /               |\n"
+			"|   /          Welcome to Hail Mary DB       /       |\n"
+			"|         /         /                 /              |\n"
+			"|    /      Developed by jshi && cyildiri       /    |\n"
+			"|           /               /          /             |\n"
+			"O====================================================O\n");
+}
+
 static void	print_usage(void)
 {
-	printf("Commmands:\n"
+	printf("Commmands (not case sensitive):\n"
 				"INSERT <key> <value>\n"
 				"SELECT <key>\n"
 				"UPDATE <key> <value>\n"
 				"DELETE <key>\n"
+				"DISPLAY\n"
 				"EXIT\n");
 }
 
@@ -28,15 +40,17 @@ static int	menu(t_args args, t_table *table)
 
 	if (args.args)
 		command = args.args[0];
-	if (args.count == 3 && strcmp(command, "INSERT") == 0)
+	if (args.count == 3 && strcasecmp(command, "INSERT") == 0)
 		insert_table_entry(table, args.args[1], args.args[2]);
-	else if (args.count == 2 && strcmp(command, "SELECT") == 0)
+	else if (args.count == 2 && strcasecmp(command, "SELECT") == 0)
 		select_table_entry(table, args.args[1]);
-	else if (args.count == 3 && strcmp(command, "UPDATE") == 0)
+	else if (args.count == 3 && strcasecmp(command, "UPDATE") == 0)
 		update_table_entry(table, args.args[1], args.args[2]);
-	else if (args.count == 2 && strcmp(command, "DELETE") == 0)
+	else if (args.count == 2 && strcasecmp(command, "DELETE") == 0)
 		delete_table_entry(table, args.args[1]);
-	else if (args.count == 1 && strcmp(command, "EXIT") == 0)
+	else if (args.count == 1 && strcasecmp(command, "DISPLAY") == 0)
+		display_table(table);
+	else if (args.count == 1 && strcasecmp(command, "EXIT") == 0)
 		return (1);
 	else
 		printf("Invalid command\n");
@@ -49,6 +63,7 @@ int			main(void)
 	t_table	table;
 	t_args	args;
 
+	welcome_msg();
 	load_table(&table);
 	print_usage();
 	while (1)

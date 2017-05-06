@@ -49,6 +49,7 @@ void			insert_table_entry(t_table *table, char *key, char *value)
 			!(new_node = row_new(key, value)) ||
 			strchr(key, ',') || strchr(value, ','))
 	{
+		printf("Invalid input\n");
 		return ;
 	}
 	new_node->next = table->row;

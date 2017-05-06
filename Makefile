@@ -12,7 +12,8 @@ SRC =   main.c\
 		ft_strsplit.c\
 		ft_strnew.c\
 		ft_memalloc.c\
-		ft_stradel.c
+		ft_stradel.c\
+		display_table.c
 OFILES = $(SRC:.c=.o)
 
 all: $(NAME)
